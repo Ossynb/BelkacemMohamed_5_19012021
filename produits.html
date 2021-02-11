@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-    <head >
+    <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
         <!-- CSS only -->
@@ -13,7 +13,7 @@
 
     </head>
     <body>
-        <header id="test">
+        <header>
             <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
                 <div class="container-fluid">
                   <a class="navbar-brand" href="#">Orinoco</a>
@@ -26,11 +26,8 @@
                       <li class="nav-item mx-3">
                         <a class="nav-link " aria-current="page" href="index.html">Accueil</a>
                       </li>
-                      <li class="nav-item mx-3">
-                        <a class="nav-link " aria-current="page" href="#">Contact</a>
-                      </li>
                       <li class="nav-item mx-5">
-                        <a class="nav-link " aria-current="page" href="Panier.html">Panier <i class="fas fa-shopping-basket"></i></a>
+                        <a class="nav-link " id="compteurPanier" aria-current="page" href="Panier.html">Panier <i class="fas fa-shopping-basket"></i></a>
                       </li>                 
                     </ul>
                   </div>
@@ -40,14 +37,12 @@
 
         <main class="container-fluid">
           
-            <h1 class="text-center">Nos Articles</h1>
-            <div class=" row " id="allArticles">
-              <p class="text-center message">Bonjour</p>
-            </div>
-              
-            </div>
+          <h1 class="text-center">Votre Article</h1>
+          <div class= "articledetails row"  id="infoArticle">  
+          </div>
+            
           
-          </main>
+        </main>
         
         <footer class="bg-dark text-white text-center fixed-bottom">
           
@@ -55,9 +50,9 @@
         </footer>
 
         <script src="API.js"></script>
-        <script src="listeArticles.js"></script>
+        <script src="infoArticle.js"></script>
         <script src="panier.js"></script>
-        <script> cams()</script>
+        <script>infoCam()</script>
 
         
 
