@@ -10,6 +10,7 @@ header{
 body{
     font-family: "antone";
     background: url("/images/Vintage13.jpg"); 
+    margin-bottom: 150px;
 }
 
 h1{
@@ -46,8 +47,9 @@ nav a{
   
 }
 
-footer{
-    height: 20px;
+#panier{
+    display: flex;
+    justify-content: center;
 }
 
 table{
@@ -59,4 +61,11 @@ th, td{
     border: 1px solid black;
     padding : 10px;
     vertical-align: middle;
+    text-align: center;
+}
+
+.imagePhoto {
+    width : 200px;
+    margin : 0px;
+
 }

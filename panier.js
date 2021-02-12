@@ -29,9 +29,9 @@ if(localStorage.getItem("panierClient")){
 
 }
 
-function panierTableau(){
+function panierTableau(){                                           //Fonction pour créer un tableau recapitulatif du contenu panier
     if(panierClient.length>0){
-        
+        // Construction de la structure HTML du tableau
         let tableauPanier = document.createElement("table");
         let captionTableau =document.createElement("caption");
         let colgroupTableau = document.createElement("colgroup");
@@ -51,16 +51,8 @@ function panierTableau(){
         let cellule2FooterTableau = document.createElement("td");
         let cellule3FooterTableau = document.createElement("td");
         let cellule4FooterTableau = document.createElement("td");
-
-
-        tableauPanier.setAttribute("class", "tableaurecapitulatif");
-        col1Tableau.setAttribute("span","3");
-        col1Tableau.setAttribute("class", "infoPanier");
-        col2Tableau.setAttribute("class", "pricePanier");
         
-        
-
-
+        // Position HTML
         panier.appendChild(tableauPanier);
         tableauPanier.appendChild(captionTableau);
         tableauPanier.appendChild(colgroupTableau);
@@ -83,12 +75,48 @@ function panierTableau(){
         ligneFooterTableau.appendChild(cellule3FooterTableau);
         ligneFooterTableau.appendChild(cellule4FooterTableau);
 
+        //Ajout des attributs 
+        tableauPanier.setAttribute("class", "tableaurecapitulatif");
+        col1Tableau.setAttribute("span","3");
+        col1Tableau.setAttribute("class", "infoPanier");
+        col2Tableau.setAttribute("class", "pricePanier");
+
+        //Ajout du contenu
         cellulePhoto.textContent = "Photo";
         celluleNom.textContent = "Nom";
         celluleLentille.textContent = "Lentille";
         cellulePrix.textContent = "Prix";
         cellule1FooterTableau.textContent = "Total";
         cellule4FooterTableau.textContent = JSON.stringify(panierClient[0].price);
+
+        //Création du ligne tableau supplémentaire à chaque ajout au panier
+
+        for (i=0;i<panierClient.length;i++){
+            let ajoutLigneTableau = document.createElement("tr");
+            let cellule1BodyPhoto = document.createElement("td");
+            let imagePhoto = document.createElement("img");
+            let cellule2BodyNom = document.createElement("td");
+            let cellule3BodyLentille = document.createElement("td");
+            let cellule4BodyPrix = document.createElement("td");
+
+            bodyTableau.appendChild(ajoutLigneTableau);
+            ajoutLigneTableau.appendChild(cellule1BodyPhoto);
+            ajoutLigneTableau.appendChild(cellule2BodyNom);
+            ajoutLigneTableau.appendChild(cellule3BodyLentille);
+            ajoutLigneTableau.appendChild(cellule4BodyPrix);
+            cellule1BodyPhoto.appendChild(imagePhoto);
+
+            imagePhoto.setAttribute("src",panierClient[i].imageUrl);
+            imagePhoto.setAttribute("alt", "Photo de l'appareil");
+            imagePhoto.setAttribute("class", "imagePhoto");
+            
+            cellule2BodyNom.textContent = JSON.stringify(panierClient[i].name);
+            cellule3BodyLentille.textContent = JSON.stringify(panierClient[i].lenses);
+            cellule4BodyPrix.textContent = JSON.stringify(panierClient[i].price);
+
+
+        }
+
 
         
                                                                 
@@ -110,4 +138,6 @@ function setPanier(){
     let panierTab = [];
     localStorage.setItem("panierClient", JSON.stringify(panierTab));
 }
+
+//Creer une fonction compteurPanier
 
