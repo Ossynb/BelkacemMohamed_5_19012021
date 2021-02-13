@@ -46,10 +46,12 @@ let infoArticle = document.getElementById("infoArticle");
     articleAjout.setAttribute("id","ajoutPanier");
     
 
-    articleAjout.addEventListener("click", ajouterAuPanier);     // une seule action
-   // articleAjout.addEventListener("click", function(){                
-    //ajouterAuPanier();
-   // });
+   // articleAjout.addEventListener("click", ajouterAuPanier);     // une seule action
+   articleAjout.addEventListener("click", function(){                
+    ajouterAuPanier();
+    
+
+   });
 
 //Positionnement HTML
 

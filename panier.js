@@ -87,11 +87,17 @@ function panierTableau(){                                           //Fonction p
         celluleLentille.textContent = "Lentille";
         cellulePrix.textContent = "Prix";
         cellule1FooterTableau.textContent = "Total";
-        cellule4FooterTableau.textContent = JSON.stringify(panierClient[0].price);
+    
+        
 
         //Création du ligne tableau supplémentaire à chaque ajout au panier
 
         for (i=0;i<panierClient.length;i++){
+
+            let totalPanier = 0;
+            totalPanier = totalPanier + panierClient[i].price;
+            cellule4FooterTableau.textContent = totalPanier;
+
             let ajoutLigneTableau = document.createElement("tr");
             let cellule1BodyPhoto = document.createElement("td");
             let imagePhoto = document.createElement("img");
@@ -111,15 +117,12 @@ function panierTableau(){                                           //Fonction p
             imagePhoto.setAttribute("class", "imagePhoto");
             
             cellule2BodyNom.textContent = JSON.stringify(panierClient[i].name);
-            cellule3BodyLentille.textContent = JSON.stringify(panierClient[i].lenses);
-            cellule4BodyPrix.textContent = JSON.stringify(panierClient[i].price);
-
-
+            cellule3BodyLentille.textContent = JSON.stringify(panierClient[i].lenses[0]);
+            cellule4BodyPrix.textContent = panierClient[i++].price;
+            
+            
         }
-
-
-        
-                                                                
+                                                           
     }else{
         alert("aucun article dans votre panier");
         let panierVide =document.createElement("div");
@@ -139,5 +142,29 @@ function setPanier(){
     localStorage.setItem("panierClient", JSON.stringify(panierTab));
 }
 
-//Creer une fonction compteurPanier
+//Creer une fonction compteur pour le Panier
+    
+const compteurPanier =async()=>{
+    let compteur = document.getElementById("compteurPanier");
+
+        compteur.textContent = "Panier "+ "( " + (panierClient.length) +" )";
+    
+          
+};
+
+compteurPanier();
+
+//fonction total du panier
+function totalPanier(){
+ for (i=0;i<panierClient.length;i++){
+    
+   
+ };
+};
+
+
+
+
+
+
 
