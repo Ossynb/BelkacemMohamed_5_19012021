@@ -88,16 +88,12 @@ function panierTableau(){                                           //Fonction p
         cellulePrix.textContent = "Prix";
         cellule1FooterTableau.textContent = "Total";
     
-        
-
+        let total =0;
         //Création du ligne tableau supplémentaire à chaque ajout au panier
 
         for (i=0;i<panierClient.length;i++){
 
-            let totalPanier = 0;
-            totalPanier = totalPanier + panierClient[i].price;
-            cellule4FooterTableau.textContent = totalPanier;
-
+            total += panierClient[i].price;
             let ajoutLigneTableau = document.createElement("tr");
             let cellule1BodyPhoto = document.createElement("td");
             let imagePhoto = document.createElement("img");
@@ -118,7 +114,12 @@ function panierTableau(){                                           //Fonction p
             
             cellule2BodyNom.textContent = JSON.stringify(panierClient[i].name);
             cellule3BodyLentille.textContent = JSON.stringify(panierClient[i].lenses[0]);
-            cellule4BodyPrix.textContent = panierClient[i++].price;
+            cellule4BodyPrix.textContent = (panierClient[i].price/100) + " EUR";
+            
+            cellule4FooterTableau.textContent = total/100 + " eur";
+
+           
+   
             
             
         }
@@ -153,16 +154,6 @@ const compteurPanier =async()=>{
 };
 
 compteurPanier();
-
-//fonction total du panier
-function totalPanier(){
- for (i=0;i<panierClient.length;i++){
-    
-   
- };
-};
-
-
 
 
 

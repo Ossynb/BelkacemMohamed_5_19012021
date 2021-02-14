@@ -147,4 +147,6 @@ if(localStorage.getItem("userPanier")){
             </table>
 
          ---------------------------------   */
-           
+          
+        //totalpanier
+         cellule4FooterTableau.textContent = Number(cellule4FooterTableau.textContent) + (panierClient[i].price/100) ;
