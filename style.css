@@ -11,6 +11,9 @@ body{
     font-family: "antone";
     background: url("/images/Vintage13.jpg"); 
     margin-bottom: 150px;
+    
+
+    
 }
 
 h1{
@@ -55,6 +58,7 @@ nav a{
 table{
     border-collapse: collapse;
     caption-side: top;
+    
 }
 
 th, td{
@@ -68,4 +72,15 @@ th, td{
     width : 200px;
     margin : 0px;
 
+}
+
+form{
+    width: 50%;
+    
+}
+
+#mainPanier{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }

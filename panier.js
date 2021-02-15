@@ -74,13 +74,13 @@ function panierTableau(){                                           //Fonction p
         ligneFooterTableau.appendChild(cellule2FooterTableau);
         ligneFooterTableau.appendChild(cellule3FooterTableau);
         ligneFooterTableau.appendChild(cellule4FooterTableau);
-
         //Ajout des attributs 
         tableauPanier.setAttribute("class", "tableaurecapitulatif");
         col1Tableau.setAttribute("span","3");
         col1Tableau.setAttribute("class", "infoPanier");
         col2Tableau.setAttribute("class", "pricePanier");
-
+        ligneFooterTableau.setAttribute("class","text-primary")
+        
         //Ajout du contenu
         cellulePhoto.textContent = "Photo";
         celluleNom.textContent = "Nom";
@@ -88,40 +88,35 @@ function panierTableau(){                                           //Fonction p
         cellulePrix.textContent = "Prix";
         cellule1FooterTableau.textContent = "Total";
     
-        let total =0;
         //Création du ligne tableau supplémentaire à chaque ajout au panier
 
+        let total =0;
         for (i=0;i<panierClient.length;i++){
-
-            total += panierClient[i].price;
+        // Ajout du prix de l'appareil photo sur le prix total du panier
+            total += panierClient[i].price;                         
+        // Construction de la structure HTML de la ligne 
             let ajoutLigneTableau = document.createElement("tr");
             let cellule1BodyPhoto = document.createElement("td");
             let imagePhoto = document.createElement("img");
             let cellule2BodyNom = document.createElement("td");
             let cellule3BodyLentille = document.createElement("td");
             let cellule4BodyPrix = document.createElement("td");
-
+        //Position HTML
             bodyTableau.appendChild(ajoutLigneTableau);
             ajoutLigneTableau.appendChild(cellule1BodyPhoto);
             ajoutLigneTableau.appendChild(cellule2BodyNom);
             ajoutLigneTableau.appendChild(cellule3BodyLentille);
             ajoutLigneTableau.appendChild(cellule4BodyPrix);
             cellule1BodyPhoto.appendChild(imagePhoto);
-
+        //Ajout des attributs sur les balises
             imagePhoto.setAttribute("src",panierClient[i].imageUrl);
             imagePhoto.setAttribute("alt", "Photo de l'appareil");
             imagePhoto.setAttribute("class", "imagePhoto");
-            
+        //Ajout du contenu dans les cellules
             cellule2BodyNom.textContent = JSON.stringify(panierClient[i].name);
             cellule3BodyLentille.textContent = JSON.stringify(panierClient[i].lenses[0]);
             cellule4BodyPrix.textContent = (panierClient[i].price/100) + " EUR";
-            
-            cellule4FooterTableau.textContent = total/100 + " eur";
-
-           
-   
-            
-            
+            cellule4FooterTableau.textContent = total/100 + " eur";     
         }
                                                            
     }else{
@@ -143,14 +138,11 @@ function setPanier(){
     localStorage.setItem("panierClient", JSON.stringify(panierTab));
 }
 
-//Creer une fonction compteur pour le Panier
-    
+//Creation d'une fonction compteur pour le Panier
 const compteurPanier =async()=>{
     let compteur = document.getElementById("compteurPanier");
 
-        compteur.textContent = "Panier "+ "( " + (panierClient.length) +" )";
-    
-          
+        compteur.textContent = "Panier "+ "( " + (panierClient.length) +" )";         
 };
 
 compteurPanier();
