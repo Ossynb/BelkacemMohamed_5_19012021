@@ -147,6 +147,56 @@ const compteurPanier =async()=>{
 
 compteurPanier();
 
+//Creation d'une fonction validation de formulaire
+
+var formulaireValidation = document.getElementById("buttonValider");
+var prenom = document.getElementById("prenom");
+var nom = document.getElementById("nom");
+var adresse = document.getElementById("adresse");
+var email = document.getElementById("email");
+var ville = document.getElementById("ville");
+var prenomManquant = document.getElementById("prenomManquant");
+var nomManquant = document.getElementById("nomManquant");
+var adresseManquante = document.getElementById("adresseManquante");
+var villeManquante = document.getElementById("villeManquante");
+var emailManquant = document.getElementById("emailManquant");
+
+formulaireValidation.addEventListener("click",validation);
+
+function validation(event){
+    //si le champ est vide
+    if(prenom.validity.valueMissing){
+        event.preventDefault();
+        prenomManquant.textContent = "N'oubliez pas votre prénom";
+        prenomManquant.style.color ="red";
+    
+    }  if (adresse.validity.valueMissing){
+        event.preventDefault();
+        adresseManquante.textContent = "N'oubliez pas votre adresse";
+        adresseManquante.style.color ="red";
+    }  if (ville.validity.valueMissing){
+        event.preventDefault();
+        villeManquante.textContent = "N'oubliez pas votre ville";
+        villeManquante.style.color ="red";
+    }  if (email.validity.valueMissing){
+        event.preventDefault();
+        emailManquant.textContent = "N'oubliez pas votre email";
+        emailManquant.style.color ="red";
+
+    }  if(nom.validity.valueMissing){
+        event.preventDefault();
+        nomManquant.textContent = "N'oubliez pas votre nom";
+        nomManquant.style.color ="red";
+    }
+
+}
+
+
+
+
+
+
+
 
 
 
