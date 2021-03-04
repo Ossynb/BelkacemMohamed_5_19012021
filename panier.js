@@ -191,6 +191,68 @@ function validation(event){
 
 }
 
+// validation avec Regex, nous definissons chaque regex pour chaque champ d'entrée à l'aide d'un objet
+const inputChamps = {
+    prenom: /^([a-z\d\.-]+)$/i,
+    nom:/^([a-z\d\.-]+)$/i,
+    email: /^([a-z\d\.-]+)@([a-z\d-]+)\.([a-z]{2,8})(\.[a-z]{2,8})?$/,
+    adresse: /^([a-z\d\s\.-]+)$/i,
+    ville: /^([a-z\d\s\.-]+)$/i,
+}
+
+
+
+
+// création d'une fonction de validation qui gérera notre validation
+// const validationRegex = (champ, regex) => {
+//     regex.test(champ.value) ? champ.className = 'valid' : champ.className = 'invalid';
+//   }
+
+
+
+//   let keys = document.querySelectorAll('input');
+//   keys.forEach(item => item.addEventListener(
+//     'keyup', e => {
+//       validationRegex(e.target, inputChamps[e.target.attributes.name.value])
+//     }
+//   ));
+
+
+
+
+
+
+//recuperer les inputs du formulaire
+
+let inputs =  document.getElementById("formulaire").elements;
+let inputPrenom = inputs["prenom"].value;
+let inputNom = inputs["nom"].value;
+let inputVille = inputs["ville"].value;
+let inputAdresse = inputs["adresse"].value;
+let inputEmail = inputs["email"].value;
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+//  let inputPrenom =  document.getElementById("prenom").value;
+//  let inputNom =  document.getElementById("nom").value;
+//  let inputVille =  document.getElementById("ville").value;
+//  let inputAdresse =  document.getElementById("adresse").value;
+//  let inputEmail =  document.getElementById("email").value;
+
+
 
 
 

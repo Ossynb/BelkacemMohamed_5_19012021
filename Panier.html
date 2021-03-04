@@ -51,30 +51,30 @@
             <p>Pour valider votre commande, veuillez remplir ce formulaire</p>
           </div>
 
-          <form method="POST" class="text-body">
+          <form method="POST" class="text-body" id="formulaire">
             <div class="form-group">
               <label for="prenom">Prénom</label>
-              <input type="input" class="form-control " id="prenom" placeholder="Votre Prenom" required >
+              <input type="text" class="form-control " id="prenom" name="prenom" placeholder="Votre Prenom" required >
               <span id="prenomManquant"></span>
             </div>
             <div class="form-group">
               <label for="nom">Nom de Famille</label>
-              <input type="input" class="form-control" id="nom" placeholder="Votre Nom de Famille" required >
+              <input type="text" class="form-control" id="nom" name="nom" placeholder="Votre Nom de Famille" required >
               <span id="nomManquant"></span>
             </div>
             <div class="form-group">
               <label for="adresse">Adresse</label>
-              <input type="input" class="form-control" id="adresse" placeholder="Votre adresse" required>
+              <input type="text" class="form-control" id="adresse" name="adresse" placeholder="Votre adresse" required>
               <span id="adresseManquante"></span>
             </div>
             <div class="form-group">
               <label for="ville">Ville</label>
-              <input type="input" class="form-control" id="ville" placeholder="Votre ville" required pattern="[A-Za-z]">
+              <input type="text" class="form-control" id="ville" name="ville" placeholder="Votre ville" required >
               <span id="villeManquante"></span>
             </div>
             <div class="form-group">
               <label for="email">Email</label>
-              <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Votre Adresse Email" required>
+              <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp" placeholder="Votre Adresse Email" required>
               <span id="emailManquant"></span>
             </div>
             <div class="text-center"> 

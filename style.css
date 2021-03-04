@@ -1,6 +1,6 @@
 @font-face{
     font-family: "antone";
-    src: url(/fonts/Antone\ Block.otf);
+    src: url(/JWDP5/fonts/AntoneBlock.otf);
 }
 
 header{
@@ -9,7 +9,7 @@ header{
 
 body{
     font-family: "antone";
-    background: url("/images/Vintage13.jpg"); 
+    background: url("/JWDP5/images/Vintage13.jpg"); 
     margin-bottom: 150px;
     
 
