@@ -8,7 +8,8 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
         <link rel="stylesheet" href="style.css">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
-        <title>Orinoco</title>
+        <title >Orinoco</title>
+        
 
     </head>
     <body id="basket">
@@ -25,9 +26,12 @@
                       <li class="nav-item mx-3">
                         <a class="nav-link " aria-current="page" href="index.html">Accueil</a>
                       </li>
-                      <li class="nav-item mx-5">
-                        <a class="nav-link " aria-current="page" href="#">Panier <i class="fas fa-shopping-basket"></i></a>
+                      <li class="nav-item mx-0">
+                        <a class="nav-link" id="compteurPanier" aria-current="page" href="#">Panier</i></a>
                       </li>
+                      <li class="nav-item mx-0">
+                        <a class="nav-link " id="compteurPanier" aria-current="page" href="Panier.html"><i class="fas fa-shopping-basket"></i></a>
+                      </li>                    
 
                  
                     </ul>
@@ -38,16 +42,36 @@
 
         </header>
        
-        <main class="container-fluid">
-          <h1 class="text-center">Votre Commande</h1>
-          <div id="output"></div>
-         
+        <main id ="mainPanier" class="container-fluid">          
+          <h1 class="text-center" id="titreh1Confirmation">Confirmation de commande</h1>
+          
 
+          <div  id="recapitulatif">
+
+            <p>Bonjour,<br><br>Nous vous remercions pour votre commande.<br>Nous vous tiendrons informé par e-mail lorsque les articles de votre commande auront été expédiés. </p>
+            <h2>Récapitulatif de commande</h2>
+            <p >Identifiant de commande : <span id="output" class="text-success">numéro</span> </p>
+            <p >Le montant total de votre commande est de <span id="montantTotal" class="text-success">montant</span> euros. </p>
+          </div>
+
+          
         </main>
+
         <footer class="bg-dark text-white text-center fixed-bottom">
           
           <p class="mt-3">Copyright © 2021 Orinoco - Tous droits réservés - Site réalisé par Mohamed Belkacem dans le cadre du Projet 5 Développeur Web - Openclassroom</p> 
         </footer>
+
+        
+        <script src="confirmationDeCommande.js"></script>
+        <script src="panier.js"></script>
+        <script>ecriture()</script>
+        
+        
+        
+        
+
+        
 
         
 

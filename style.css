@@ -1,7 +1,8 @@
 @font-face{
     font-family: "antone";
-    src: url(/JWDP5/fonts/AntoneBlock.otf);
+    src: url(/fonts/AntoneBlock.otf);
 }
+
 
 header{
     height: 100px;
@@ -9,20 +10,28 @@ header{
 
 body{
     font-family: "antone";
-    background: url("/JWDP5/images/Vintage13.jpg"); 
+    background: url("/images/Vintage13.jpg"); 
     margin-bottom: 150px;
-    
+}
 
+#basket{
+    
+    background: right no-repeat url("/images/photo7.jpg") ;
     
 }
 
-h1{
+h1, #recapitulatif{
     color:darkslateblue;
 }
 
+#titreh1Confirmation {
+    margin-bottom: 50px;
+}
 
-.imagevintage2{
-    width: 100%;
+#output, #montantTotal{
+    font-size: 20px;
+    font-weight: bold;
+    
 }
 
 .navbar{
