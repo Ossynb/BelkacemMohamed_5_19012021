@@ -1,7 +1,7 @@
+// APPEL DE L'API
+
 let idCam="";
 
-
-// APPEL DE L'API
 getAllCam = () => {
     return new Promise ((resolve)=>{
         var req = new XMLHttpRequest();

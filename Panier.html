@@ -59,7 +59,7 @@
             </div>
             <div class="form-group">
               <label for="nom">Nom de Famille</label>
-              <input type="text" class="form-control" id="nom" name="nom" placeholder="Votre Nom de Famille" required >
+              <input type="text" class="form-control" id="nom" name="nom" tabindex="null" placeholder="Votre Nom de Famille" required >
               <span id="nomManquant"></span>
             </div>
             <div class="form-group">
@@ -78,7 +78,7 @@
               <span id="emailManquant"></span>
             </div>
             <div class="text-center"> 
-              <button disabled type="" class="btn btn-primary" id="buttonValider">Valider votre commande</button>
+              <button disabled type="submit" class="btn btn-primary" id="buttonValider">Valider votre commande</button>
             </div>
           </form>
 
@@ -90,9 +90,10 @@
         </footer>
 
         
-        <script src="infoArticle.js"></script>
-        <script src="panier.js"></script>
-        <script> panierTableau()</script>
+        <script src="/fichiersJS/panier.js"></script>
+        <script src="/fichiersJS/formulaire.js"></script>
+        <script src="/fichiersJS/envoiApi.js"></script>
+        <script> tableauRecapPanier()</script>
         
         
         
