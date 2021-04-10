@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-    <head >
+    <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
         <!-- CSS only -->
@@ -13,7 +13,7 @@
 
     </head>
     <body>
-        <header id="test">
+        <header>
             <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
                 <div class="container-fluid">
                   <a class="navbar-brand" href="#">Orinoco</a>
@@ -26,12 +26,12 @@
                       <li class="nav-item mx-3">
                         <a class="nav-link " aria-current="page" href="index.html">Accueil</a>
                       </li>
-                      <li class="nav-item mx-0">
-                        <a class="nav-link " id="compteurPanier" aria-current="page" href="Panier2.html">Panier</a>
-                      </li>
+                      <li class="nav-item mx-0 compteurPanier">
+                        <a class="nav-link" id="compteurPanier" aria-current="page" href="Panier2.html">Panier</a>
+                      </li>    
                       <li class="nav-item mx-0">
                         <a class="nav-link " id="compteurPanier" aria-current="page" href="Panier2.html"><i class="fas fa-shopping-basket"></i></a>
-                      </li>                    
+                      </li>                                 
                     </ul>
                   </div>
                 </div>
@@ -40,14 +40,29 @@
 
         <main class="container-fluid">
           
-            <h1 class="text-center">Nos Articles</h1>
-            <ul class=" list-group list-group-horizontal-md" id="allArticles">
-              
-            </ul>
-              
-            </div>
+          <h1 class="text-center">Votre Article</h1>
+          <div class= "articledetails row"  id="infoArticle"> 
+            <section class=" card cadre cadreDetails" style="width: 35rem;">
+                <img id="articleImageDetails" alt="Photo de l'appareil" class="card-img-top">
+                <div class="card-body articleFicheDetails text-center">
+                    <h2 id="articleNomDetails" class="card-title text-center">Nom de l'appareil photo</h2>
+                    <p class="text-center articlePrixDetails">Prix en euros</p>
+                    <p id="articleDescriptionDetails" class="card-text text-center ">Description</p>
+                    <label for="choixLentille"></label>
+                    <select class="text-center" id="choixLentille" name="lentille">
+                        <option id="articleChoixDetails1" >--Taille de la lentille--</option>
+                        <option id="articleChoixDetails2" ></option>
+                        <option id="articleChoixDetails3" ></option>
+                        <option id="articleChoixDetails4" ></option>
+                    </select>
+                </div>
+                <button type="button" class="btn btn-dark ajoutPanier" id="ajoutPanier">Ajouter au Panier</button>
+            </section> 
+
+          </div>
+            
           
-          </main>
+        </main>
         
         <footer class="bg-dark text-white text-center fixed-bottom">
           
@@ -55,8 +70,9 @@
         </footer>
 
         <script src="/fichiersJS/connexionApi.js"></script>
-        <script src="/fichiersJS/liste2.js"></script>
+        <script src="/fichiersJS/produitCard2.js"></script>
         <script src="/fichiersJS/panier3.js"></script>
+        
         
 
         
