@@ -1,4 +1,3 @@
-
 //Variables nécessaire pour la suite 
 let articleImageDetails = document.querySelector("#articleImageDetails");
 let articleNomDetails = document.getElementById("articleNomDetails");
@@ -9,22 +8,15 @@ let articleChoixDetails4 = document.getElementById("articleChoixDetails4");
 let articleAjout = document.getElementById("ajoutPanier");
 
 
-//fonction qui affiche le détail de chaque article dans une card bootstrap
-async function detailsCam() {
-    id = location.search.substring(4);// passer en parametre
-    const infoCam = await getAllCam(id);
-    attributCardProduit();
-    ajoutContenuProduitCard();
-
-//Ajout des attributs
-function attributCardProduit(){
+//Ajout des attributs de la card pour l'appareil photo sélectionné
+function attributCardProduit(infoCam){
     articleImageDetails.setAttribute("src", infoCam.imageUrl);
     articleChoixDetails2.setAttribute("value",infoCam.lenses[0]);
     articleChoixDetails3.setAttribute("value",infoCam.lenses[1]);
     articleChoixDetails4.setAttribute("value",infoCam.lenses[2]);
 }
- //Ajout du contenu
-function ajoutContenuProduitCard(){  
+ //Ajout du contenu de la card pour l'appareil photo sélectionné
+function ajoutContenuProduitCard(infoCam){  
     articleNomDetails.textContent = infoCam.name;
     articlePrixDetails.textContent = infoCam.price/100 + " EUR";
     articleDescriptionDetails.textContent = infoCam.description;
@@ -33,11 +25,19 @@ function ajoutContenuProduitCard(){
     articleChoixDetails4.textContent = infoCam.lenses[2]; 
 }
 
-articleAjout.addEventListener("click", ajouterAuPanier);     // une seule action
-/* articleAjout.addEventListener("click", function(){                
-  ajouterAuPanier();
-}); */
+//function qui recupère les informations détaillés de l'appareil photo sélectionné
+const detailsCam = async () =>{
+    return new Promise((resolve)=>{
+        id = location.search.substring(4);// passer en parametre
+        const infoCam = getAllCam(id);
+        resolve (infoCam);
+    })
+}
 
-};
-
-detailsCam();
+//après avoir consommé la promesse on peut lancer les fonctions suivantes pour construire la card
+detailsCam()
+.then((infoCam)=>{
+    attributCardProduit(infoCam);
+    ajoutContenuProduitCard(infoCam);
+    articleAjout.addEventListener("click", ajouterAuPanier); 
+});

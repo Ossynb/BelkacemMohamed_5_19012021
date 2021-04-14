@@ -51,8 +51,8 @@ function positionHtml(){
     
 //contenu  
 function ajoutContenuCardListe(){
-    articleNom.textContent = came.name;
-    articlePrix.textContent = came.price/100 + " EUR";
+    articleNom.textContent = onlyThatCam.name;
+    articlePrix.textContent = onlyThatCam.price/100 + " EUR";
     articleDetails.textContent = "Détails";
     };
   });

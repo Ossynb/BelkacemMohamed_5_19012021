@@ -22,7 +22,7 @@ const compteurPanier =async()=>{
 }
 
 const ajouterAuPanier = async()=>{
-    const ajouter = await getAllCam();
+    const ajouter = await getAllCam(id);
     panierClient.push(ajouter);
     localStorage.setItem("panierClient", JSON.stringify(panierClient));    //JSON.stringify convertit le javascript en JSON
     window.location.reload();

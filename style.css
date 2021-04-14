@@ -3,7 +3,6 @@
     src: url(/fonts/AntoneBlock.otf);
 }
 
-
 header{
     height: 100px;
 }
@@ -14,8 +13,14 @@ body{
     margin-bottom: 150px;
 }
 
+.cadre{
+    box-shadow: 10px 5px 5px gray;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-top: 5px;  
+}
+
 #basket{
-    
     background: right no-repeat url("/images/photo7.jpg") ;
     
 }
@@ -50,8 +55,7 @@ nav a{
 #allArticles, .articledetails, #cadreDetails{
     display: flex;
     justify-content:space-around;
-    align-items: center;
-    
+    align-items: center;  
 }
 
 .ajoutPanier{
@@ -67,11 +71,16 @@ nav a{
 table{
     border-collapse: collapse;
     caption-side: top;
+    color :darkslateblue;
     
 }
 
+thead, tbody, tfoot, label{
+    background-color:white ;
+}
+
 th, td{
-    border: 1px solid black;
+    border: 2px solid black;
     padding : 10px;
     vertical-align: middle;
     text-align: center;
@@ -93,3 +102,15 @@ form{
     flex-direction: column;
     align-items: center;
 }
+
+@media screen and (min-width: 600px) {
+    #compteurPanier2{
+        display: none;
+    }   
+}
+@media screen and (max-width: 600px) {
+    #compteurPanier{
+        display: none;
+    }   
+}
+ 
