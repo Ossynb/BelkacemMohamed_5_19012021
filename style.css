@@ -29,6 +29,11 @@ body{
     
 }
 
+#mainPanier{
+    display: flex;
+    justify-content: center;
+}
+
 h1, #recapitulatif{
     color:darkslateblue;
 }
@@ -70,17 +75,23 @@ nav a{
 #panier{
     display: flex;
     justify-content: center;
+    
 }
 
 table{
     border-collapse: collapse;
     caption-side: top;
     color :darkslateblue;
-    
+    overflow-x : scroll;
+}
+
+#tableauVide{
+    overflow : auto;
 }
 
 thead, tbody, tfoot, label{
     background-color:white ;
+    
 }
 
 th, td{
@@ -90,15 +101,19 @@ th, td{
     text-align: center;
 }
 
+
+
+#paragrapheValidationCommande{
+    background: blanchedalmond;
+}
+
 .imagePhoto {
     width : 200px;
     margin : 0px;
-
 }
 
 form{
     width: 50%;
-    
 }
 
 #mainPanier{
@@ -115,6 +130,35 @@ form{
 @media screen and (max-width: 600px) {
     #compteurPanier{
         display: none;
-    }   
+    }
+    .navbar-brand {
+        font-size: 22px;
+        margin-top: -5px;
+    }
+    .fa-shopping-basket{
+        font-size : 22px;
+    }  
+}
+
+@media (max-width: 500px){
+    table thead {
+    display: none;
+    }
+    table tr{
+    display: block;
+    margin-bottom: 40px;
+    }
+    table td {
+    display: block;
+    text-align: center;
+    }
+    table td:before {
+    content: attr(data-label);
+    float: center;
+    font-weight: bold;
+    }
+    .celluleVide{
+        display: none;
+    }
 }
  

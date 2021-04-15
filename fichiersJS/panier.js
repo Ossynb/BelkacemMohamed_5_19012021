@@ -18,7 +18,9 @@ function stockagePanier(){
 //Creation des fonctions compteur pour le Panier, ajouter et supprimer du panier
 const compteurPanier =async()=>{
     let compteur = document.getElementById("compteurPanier");
-    compteur.textContent = "Panier "+ "( " + (panierClient.length) +" )";         
+    let compteur2 = document.getElementById("compteurPanier2");
+    compteur.textContent = "Panier "+ "( " + (panierClient.length) +" )"; 
+    compteur2.textContent =  " " + (panierClient.length) + " ";   
 }
 
 const ajouterAuPanier = async()=>{
@@ -85,6 +87,11 @@ function tableauRecapPanier(){
                 imagePhoto.src = panierClient[i].imageUrl;
                 imagePhoto.alt = "Photo de l'appareil";
                 imagePhoto.className = "imagePhoto";
+                cellule1BodyPhoto.setAttribute("data-Label", "");
+                cellule2BodyNom.setAttribute("data-label", "");
+                cellule3BodyLentille.setAttribute("data-Label", "");
+                cellule4BodyPrix.setAttribute("data-Label", "");
+                cellule5BodyRemove.setAttribute("data-Label", "");
             };
             ajoutAttributs();
 
