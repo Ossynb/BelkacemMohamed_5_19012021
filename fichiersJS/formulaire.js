@@ -9,72 +9,29 @@ let mail = document.getElementById("email");
 let ville = document.getElementById("ville");
 let prenomManquant = document.getElementById("prenomManquant");
 let nomManquant = document.getElementById("nomManquant");
-let adresseManquante = document.getElementById("adresseManquante");
-let villeManquante = document.getElementById("villeManquante");
-let emailManquant = document.getElementById("emailManquant");
+let adresseManquant = document.getElementById("adresseManquante");
+let villeManquant = document.getElementById("villeManquante");
+let mailManquant = document.getElementById("emailManquant");
+let prenomRegex = /^([a-z\d\.-]+)$/i;
+let nomRegex = /^([a-z\d\.-]+)$/i;
+let mailRegex =  /^([a-z\d\.-]+)@([a-z\d-]+)\.([a-z]{2,8})(\.[a-z]{2,8})?$/;
+let adresseRegex = /^([a-z\d\s\.-]+)$/i;
+let villeRegex = /^([a-z\d\s\.-]+)$/i;
 
-let regexPrenom = /^([a-z\d\.-]+)$/i;
-let regexNom = /^([a-z\d\.-]+)$/i;
-let regexMail =  /^([a-z\d\.-]+)@([a-z\d-]+)\.([a-z]{2,8})(\.[a-z]{2,8})?$/;
-let regexAdresse = /^([a-z\d\s\.-]+)$/i;
-let regexVille = /^([a-z\d\s\.-]+)$/i;
+function verifInput(name, nameRegex, nameManquant){
+    if((name.validity.valueMissing)||(nameRegex.test(name.value)==false)){
+        event.preventDefault();
+        nameManquant.textContent = name.id +" manquant(e) et/ou Format incorrect";
+        nameManquant.style.color ="red";
+        name.style.backgroundColor = "red";
+    }   else{
+        name.style.backgroundColor = "green";
+        nameManquant.textContent = "";   
+    }
+}
 
-//Creation d'une fonction validation de formulaire
-function verificationFormulaire(event){
-    
-    //si le champ est vide
-    if((prenom.validity.valueMissing)||(regexPrenom.test(prenom.value)==false)){
-        event.preventDefault();
-        prenomManquant.textContent = "Prénom manquant et/ou Format incorrect";
-        prenomManquant.style.color ="red";
-        prenom.style.backgroundColor = "red";
-    }   else{
-        prenom.style.backgroundColor = "green";
-        prenomManquant.textContent = "";   
-    }
-    
-    if ((adresse.validity.valueMissing)||(regexAdresse.test(nom.value)==false)){
-        event.preventDefault();
-        adresseManquante.textContent = "Adresse manquante et/ou Format incorrect";
-        adresseManquante.style.color ="red";
-        adresse.style.backgroundColor = "red";
-    }   else{
-        adresse.style.backgroundColor = "green";
-        adresseManquante.textContent = "";
-    }
-    
-    if((ville.validity.valueMissing)||(regexVille.test(ville.value)==false)){
-        event.preventDefault();
-        villeManquante.textContent = "Ville manquante et/ou Format incorrect";
-        villeManquante.style.color ="red";
-        ville.style.backgroundColor = "red";
-    }   else{
-        ville.style.backgroundColor = "green";
-        villeManquante.textContent = "";
-    }
-
-    if ((mail.validity.valueMissing)||(regexMail.test(mail.value)==false)){
-        event.preventDefault();
-        emailManquant.textContent = "Email manquant et/ou format incorrect";
-        emailManquant.style.color ="red";
-        mail.style.backgroundColor = "red";
-    }   else{
-        mail.style.backgroundColor = "green";
-        emailManquant.textContent = "";
-    }
-    
-    if((nom.validity.valueMissing)||(regexNom.test(nom.value)==false)){
-        event.preventDefault();
-        nomManquant.textContent = "Nom manquant et/ou Format incorrect";
-        nomManquant.style.color ="red";
-        nom.style.backgroundColor = "red";
-    }   else{
-        nom.style.backgroundColor = "green";
-        nomManquant.textContent = "";
-    }
-
+function enableButtonValidation(){
     if((nom.style.backgroundColor=="green")&&(mail.style.backgroundColor=="green")&&(prenom.style.backgroundColor == "green")&&(adresse.style.backgroundColor == "green")&&(ville.style.backgroundColor == "green")){
-        
         formulaireValidation.disabled=0;
         //Creation de l'objet pour la requete API POST 
         contact.firstName = prenom.value;
@@ -86,6 +43,17 @@ function verificationFormulaire(event){
     }   else{
         formulaireValidation.disabled=1;
     }
-};
+}
+
+function verificationFormulaire(){
+    verifInput(prenom, prenomRegex, prenomManquant);
+    verifInput(nom, nomRegex, nomManquant);
+    verifInput(adresse, adresseRegex, adresseManquant );
+    verifInput(ville, villeRegex, villeManquant);
+    verifInput(mail, mailRegex, mailManquant);
+    enableButtonValidation();
+}
+
 //Evenement pour lancer la fonction "verificationFormulaire" lorsque l'utilisateur vient d'appuyer sur le clavier
 formulaire.addEventListener("keyup", verificationFormulaire);
+    

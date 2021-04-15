@@ -20,6 +20,10 @@ body{
     margin-top: 5px;  
 }
 
+#allArticles .card-body{
+    max-height : 100%;
+}
+
 #basket{
     background: right no-repeat url("/images/photo7.jpg") ;
     
