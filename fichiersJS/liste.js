@@ -11,7 +11,7 @@ let allArticles = document.getElementById("allArticles");
 
 //fonction pour afficher les differents produits de l'API
 async function cams() {
-    const cams = await getAllCam();
+    const cams = await connectApi();
 cams.forEach ((onlyThatCam) => {
     creationElementListe();
     ajoutAttributsCardListe();

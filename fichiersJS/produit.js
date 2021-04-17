@@ -29,7 +29,7 @@ function ajoutContenuProduitCard(infoCam){
 const detailsCam = async () =>{
     return new Promise((resolve)=>{
         id = location.search.substring(4);// passer en parametre
-        const infoCam = getAllCam(id);
+        const infoCam = connectApi(id);
         resolve (infoCam);
     })
 }

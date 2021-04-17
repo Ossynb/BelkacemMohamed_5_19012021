@@ -5,7 +5,9 @@ function recupOrderId () {
     let identifiantDeCommande = sessionStorage.getItem("identifiant");
     let total = sessionStorage.getItem("Total");
     output.textContent = identifiantDeCommande;
+    output.style.backgroundColor ="white";
     montantTotal.textContent = total ;
+    montantTotal.style.backgroundColor = "white";
     localStorage.clear();
     sessionStorage.clear();
 }

@@ -19,7 +19,7 @@ const envoiCommande = async () => {
     .then(
       (response) => {
         if (response.status !== 200) {
-          alert('Voici le status: ' + response.status);
+          console.log('Voici le status: ' + response.status);
           return response;
         }
       })

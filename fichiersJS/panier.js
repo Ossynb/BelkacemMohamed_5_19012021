@@ -24,11 +24,11 @@ const compteurPanier =async()=>{
 }
 
 const ajouterAuPanier = async()=>{
-    const ajouter = await getAllCam(id);
+    const ajouter = await connectApi(id);
     panierClient.push(ajouter);
     localStorage.setItem("panierClient", JSON.stringify(panierClient));    //JSON.stringify convertit le javascript en JSON
     window.location.reload();
-    alert("ajouter au panier :)");
+    alert("L'article a bien été ajouter à votre panier :)");
 }
 
 const supprimerDuPanier =(i)=>{
@@ -116,9 +116,11 @@ function tableauRecapPanier(){
         }
                                                            
     }else{
-        alert("aucun article dans votre panier");
+        
         let panierVide =document.querySelector("#aucunArticle");
         panierVide.textContent = ("Aucun article dans votre panier");
+        panierVide.style.color = "red";
+        panierVide.style.background = "blanchedalmond";
         paragrapheValidationCommande.style.visibility = "hidden";
         //Pour éviter un envoi de formulaire si le panier est vide, l'utilisateur ne peut pas y accéder
         formulaire.style.visibility = "hidden";
