@@ -1,34 +1,21 @@
-// Objets necessaire pour l'envoi à l'API 
-let contact = {};
-let products = [];
-let objetDeRequete = {
-    contact,
-    products,
-};
-
-//Creation du contenu de l'objet contact pour la requete API POST
-function objetContact(){
-  if (formulaireValidation.disabled==0){
-    contact.firstName = prenom.value;
-    contact.lastName = nom.value;
-    contact.address =adresse.value;
-    contact.city = ville.value;
-    contact.email = mail.value;
-    console.log(contact);
-    return contact;
+let contact = {
+    firstName : prenom.value,
+    lastName : nom.value,
+    address :adresse.value,
+    city : ville.value,
+    email : mail.value,
   };
-}
-
-////ajout du contenu du tableau products pour la requete API POST
-function ajoutContenuProducts(){
+  let products = []; 
   for(var i= 0; i < panierClient.length; i++){
     products.push((panierClient[i]._id));
-    console.log(products);
+  }
+  
+  let objetDeRequete = {
+      contact,
+      products,
   };
-}
 
-// envoi API avec FETCH      
-const envoiCommande = async () => {
+  const envoiCommande = async () => {
     const response = await fetch("http://localhost:3000/api/cameras/order", {
       headers: {
         "Content-Type": "application/json",
@@ -52,7 +39,6 @@ const envoiCommande = async () => {
   
   formulaireValidation.addEventListener("click", async (e) => {
     e.preventDefault();
-    objetContact();
-    ajoutContenuProducts();
-    await envoiCommande();          
+    
+     await envoiCommande();          
  });  

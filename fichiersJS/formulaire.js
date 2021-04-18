@@ -34,14 +34,9 @@ function verifInput(name, nameRegex, nameManquant){
 //function qui active le bouton de validation si tous les inputs sont validé et crée l'objet requis pour l'envoi à l'api
 function enableButtonValidation(){
     if((nom.style.backgroundColor=="green")&&(mail.style.backgroundColor=="green")&&(prenom.style.backgroundColor == "green")&&(adresse.style.backgroundColor == "green")&&(ville.style.backgroundColor == "green")){
-        formulaireValidation.disabled=0;
-        //Creation de l'objet pour la requete API POST 
-        contact.firstName = prenom.value;
-        contact.lastName = nom.value;
-        contact.address =adresse.value;
-        contact.city = ville.value;
-        contact.email = mail.value;
-        return contact;  
+        
+        formulaireValidation.disabled=0; 
+
     }   else{
         formulaireValidation.disabled=1;
     }

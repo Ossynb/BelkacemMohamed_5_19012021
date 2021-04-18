@@ -50,9 +50,8 @@ let cellule3BodyLentille ;
 let cellule4BodyPrix ;
 let cellule5BodyRemove ;
 let bodyTableau = document.querySelector("tbody");
-        let cellule4FooterTableau = document.querySelector("#cellule4FooterTableau");
-// Objet necessaire pour la fonction tableauRecapPanier
-let products = []; 
+let cellule4FooterTableau = document.querySelector("#cellule4FooterTableau");
+
 //Fonction pour créer un tableau recapitulatif du contenu panier 
 function tableauRecapPanier(){                                          
     if(panierClient.length>0){
@@ -109,7 +108,6 @@ function tableauRecapPanier(){
 
             // Ajout du contenu panier dans l'objet produit
             function ajoutContenuPanier(){
-                products.push((panierClient[i]._id));
                 sessionStorage.setItem("Total",total/100)
             };
             ajoutContenuPanier();
