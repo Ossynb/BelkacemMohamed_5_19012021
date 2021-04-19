@@ -9,16 +9,7 @@ let articleDetails ;
 //liaison index.html
 let allArticles = document.getElementById("allArticles");
 
-//fonction pour afficher les differents produits de l'API
-async function cams() {
-    const cams = await connectApi();
-cams.forEach ((onlyThatCam) => {
-    creationElementListe();
-    ajoutAttributsCardListe();
-    positionHtml();
-    ajoutContenuCardListe();
-
-//construction HTML
+//fonction creation des balises html necessaire a chaque card
 function creationElementListe(){
     cadre = document.createElement("li");
     articleFiche = document.createElement("div");
@@ -28,8 +19,15 @@ function creationElementListe(){
     articleDetails = document.createElement("a");
     };
 
-/*Ajout des attributs au balise index HTML */
-function ajoutAttributsCardListe(){
+//fonction qui gère l'agencement/la hierarchie des balises HTML
+function positionHtml(){
+    allArticles.appendChild(cadre);
+    cadre.append(articleImage, articleFiche);
+    articleFiche.append(articleNom, articlePrix, articleDetails);
+    };
+
+//Ajout des attributs aux balises HTML créé par la fonction creationElementListe()
+function ajoutAttributsCardListe(onlyThatCam){
     cadre.setAttribute("class", " card cadre list-group-item");
     cadre.setAttribute("style", "width: 18rem;");
     articleImage.setAttribute("src", onlyThatCam.imageUrl);
@@ -41,20 +39,22 @@ function ajoutAttributsCardListe(){
     articleDetails.setAttribute("href", "produit.html?id="+ onlyThatCam._id);
     articleDetails.setAttribute("class", "btn btn-primary articleDetails text-center");
     };
-
-//positionnement HTML
-function positionHtml(){
-    allArticles.appendChild(cadre);
-    cadre.append(articleImage, articleFiche);
-    articleFiche.append(articleNom, articlePrix, articleDetails);
-    };
     
-//contenu  
-function ajoutContenuCardListe(){
+//Ajout du contenu de chacune des cards    
+function ajoutContenuCardListe(onlyThatCam){
     articleNom.textContent = onlyThatCam.name;
     articlePrix.textContent = onlyThatCam.price/100 + " EUR";
     articleDetails.textContent = "Détails";
     };
+    
+//fonction qui appelle toutes les fonctions neccessaires pour afficher la liste montrant les produits de l'API
+async function cams() {
+    const cams = await connectApi();
+cams.forEach ((onlyThatCam) => {
+    creationElementListe();
+    ajoutAttributsCardListe(onlyThatCam);
+    positionHtml();
+    ajoutContenuCardListe(onlyThatCam);    
   });
 };
 

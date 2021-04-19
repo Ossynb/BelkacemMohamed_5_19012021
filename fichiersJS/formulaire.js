@@ -31,12 +31,11 @@ function verifInput(name, nameRegex, nameManquant){
         nameManquant.textContent = "";   
     }
 }
+
 //function qui active le bouton de validation si tous les inputs sont validé et crée l'objet requis pour l'envoi à l'api
 function enableButtonValidation(){
     if((nom.style.backgroundColor=="green")&&(mail.style.backgroundColor=="green")&&(prenom.style.backgroundColor == "green")&&(adresse.style.backgroundColor == "green")&&(ville.style.backgroundColor == "green")){
-        
         formulaireValidation.disabled=0; 
-
     }   else{
         formulaireValidation.disabled=1;
     }

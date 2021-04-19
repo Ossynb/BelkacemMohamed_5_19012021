@@ -1,4 +1,4 @@
-//Variables nécessaire pour la suite 
+//Variables nécessaire pour les 2 fonctions qui crée le contenu de la card 
 let articleImageDetails = document.querySelector("#articleImageDetails");
 let articleNomDetails = document.getElementById("articleNomDetails");
 let articlePrixDetails = document.querySelector(".articlePrixDetails");
@@ -6,7 +6,6 @@ let articleChoixDetails2 = document.getElementById("articleChoixDetails2");
 let articleChoixDetails3 = document.getElementById("articleChoixDetails3");
 let articleChoixDetails4 = document.getElementById("articleChoixDetails4");
 let articleAjout = document.getElementById("ajoutPanier");
-
 
 //Ajout des attributs de la card pour l'appareil photo sélectionné
 function attributCardProduit(infoCam){
@@ -23,6 +22,15 @@ function ajoutContenuProduitCard(infoCam){
     articleChoixDetails2.textContent = infoCam.lenses[0];   
     articleChoixDetails3.textContent = infoCam.lenses[1];
     articleChoixDetails4.textContent = infoCam.lenses[2]; 
+}
+
+//Creation d'une fonction qui ajoute l'article sélectionné dans le panier de l'utilisateur 
+const ajouterAuPanier = async()=>{
+    const ajouter = await connectApi(id);
+    panierClient.push(ajouter);
+    localStorage.setItem("panierClient", JSON.stringify(panierClient));    //JSON.stringify convertit le javascript en JSON
+    window.location.reload();
+    alert("L'article a bien été ajouter à votre panier :)");
 }
 
 //function qui recupère les informations détaillés de l'appareil photo sélectionné
