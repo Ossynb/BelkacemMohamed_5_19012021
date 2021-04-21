@@ -1,7 +1,7 @@
 //Element dans lequel va s'afficher le panier/
 let panier = document.getElementById("panier");
 
-//Panier du client/
+// Panier du client/
 let panierClient = JSON.parse(localStorage.getItem("panierClient")); // JSON.parse convertit le JSON en javascript
 
 //Creation de l'objet de stockage pour le panier s'il n'existe pas
@@ -19,8 +19,15 @@ function stockagePanier(){
 const compteurPanier =async()=>{
     let compteur = document.getElementById("compteurPanier");
     let compteur2 = document.getElementById("compteurPanier2");
-    compteur.textContent = "Panier "+ "( " + (panierClient.length) +" )"; 
-    compteur2.textContent =  " " + (panierClient.length) + " ";   
+    if(panierClient.length>0){
+        compteur.textContent = "Panier "+ "( " + (panierClient.length) +" )"; 
+        compteur2.textContent =  " " + (panierClient.length) + " ";   
+
+    }else{
+        compteur.textContent = "Panier ( 0 ) "; 
+        compteur2.textContent =  " 0 ";   
+    }
+   
 }
 
 stockagePanier();

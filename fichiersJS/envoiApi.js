@@ -1,4 +1,4 @@
-// Objets necessaire pour l'envoi à l'API 
+//Objets necessaire pour l'envoi à l'API 
 let contact = {};
 let products = [];
 let objetDeRequete = {
@@ -19,7 +19,7 @@ function objetContact(){
   };
 }
 
-////ajout du contenu du tableau products pour la requete API POST
+//Ajout le/les _id d'article(s) dans l'objet products pour la requete API POST
 function ajoutContenuProducts(){
   for(var i= 0; i < panierClient.length; i++){
     products.push((panierClient[i]._id));
@@ -27,32 +27,32 @@ function ajoutContenuProducts(){
   };
 }
 
-// envoi API avec FETCH      
+//Envoi de l'objet de requete contenant l'objet contact et le tableau de produit à API avec FETCH      
 const envoiCommande = async () => {
-    const response = await fetch("http://localhost:3000/api/cameras/order", {
-      headers: {
-        "Content-Type": "application/json",
-      },
-      method : "POST",
-      body: JSON.stringify(objetDeRequete),
-    })  
-    .then(
-      (response) => {
-        if (response.status !== 200) {
-          console.log('Voici le status: ' + response.status);
-          return response;
-        }
-      })
-      .then(response => response.json())
-      .then(response => sessionStorage.setItem("identifiant",response.orderId))
-      .catch(error => alert("Attention Erreur : " + error))
-      window.location ="confirmationDeCommande.html";
+  const response = await fetch("http://localhost:3000/api/cameras/order", {
+    headers: {
+      "Content-Type": "application/json",
+    },
+    method : "POST",
+    body: JSON.stringify(objetDeRequete),
+  })  
+  .then(
+    (response) => {
+      if (response.status !== 200) {
+        console.log('Voici le status: ' + response.status);
+        return response;
+      }
+    })
+  .then(response => response.json())
+  .then(response => sessionStorage.setItem("identifiant",response.orderId))
+  .catch(error => alert("Attention Erreur : " + error))
+  window.location ="confirmationDeCommande.html";
       
 };
-  
-  formulaireValidation.addEventListener("click", async (e) => {
-    e.preventDefault();
-    objetContact();
-    ajoutContenuProducts();
-    await envoiCommande();          
- });  
+//Evénement click sur le bouton "valider votre commande" 
+formulaireValidation.addEventListener("click", async (e) => {
+  e.preventDefault();
+  objetContact();
+  ajoutContenuProducts();
+  await envoiCommande();          
+});  

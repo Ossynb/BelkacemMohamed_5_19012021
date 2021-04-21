@@ -25,8 +25,7 @@ body{
 }
 
 #basket{
-    background: right no-repeat url("/images/photo7.jpg") ;
-    
+    background: right no-repeat url("/images/photo7.jpg") ;   
 }
 
 #mainPanier{
@@ -44,8 +43,7 @@ h1, #recapitulatif{
 
 #output, #montantTotal{
     font-size: 20px;
-    font-weight: bold;
-    
+    font-weight: bold; 
 }
 
 .navbar{
@@ -67,15 +65,17 @@ nav a{
     align-items: center;  
 }
 
+#articleImageDetails{
+    margin-top: 10px;
+}
+
 .ajoutPanier{
     margin-bottom : 30px;
-  
 }
 
 #panier{
     display: flex;
     justify-content: center;
-    
 }
 
 table{
@@ -91,7 +91,6 @@ table{
 
 thead, tbody, tfoot, label{
     background-color:white ;
-    
 }
 
 th, td{
